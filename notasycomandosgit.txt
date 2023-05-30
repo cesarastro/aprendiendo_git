@@ -1,0 +1,235 @@
+git -- version  % me dice la vercion del git de la computadora
+git config --global user.name "CACC"  % da el nombre en git
+git config --global user.email cacristanchoc@gmail.com
+
+% el nobre y el correo es la informacion minima para usar git
+
+% para hacer git nuestro editor predeterminado usamos el siguiente comando
+
+git config --global core.editor "code --wait" % wait es para que git se quede
+% esperando hasta que demos enter o terminemos la configuracion 
+
+git config --global e
+
+% con lo anterior podemos ver la configuracion de git desde vscode.
+para continuar hay que cerrar vscode.
+% tambien podriamos usar vim 
+
+core auto.crlf   cr lf   son caracteres especiales que se usan para subir y bajar
+codigo en windows para linux o mac solo se usa lf para subir y bajar archivos.
+
+crlf debe contener imput para windows es true
+
+git config --global core.autocrlf true
+
+solo escribir git config me da todas las posibles opciones 
+
+ls    % lista todas las carpetas del directorio
+
+para saber el directorio actual usamos pwd
+
+
+para entrar al directorio que deseamos usamos el comado cd seguido del lugar al que
+queremos acceder
+
+cd /Users/CACC/MATLAB Drive/Optimization vvc/DCD
+
+para salir uno atras en el diretorio usamos 
+cd ..
+
+para salir de todo cd ...
+
+ para crear un directorio usamos 
+mkdir nombre_del_directorio    % en otras palabras crea una carpeta de nombre nombre_del_directorio
+
+
+
+git init    % inicializa un repositorio
+
+code .    % me abre vscode en la carpeta actual.
+
+git touch nombre_archivo.txt  % crea un archivo especificado
+			
+creamos archivos propios del proyecto 
+y revisamos el estado del mismo con 
+git status
+
+
+para agregar los archivos que queremos que esten en nuestro proyecto usamos 
+git add
+
+existen diferentes formas de agregar archivos con git add
+git add  nombre_archivo   % agrega solo el nombre del archivo
+git add  .txt             % agrega todos los archivos txt
+git add  .                % agrega todos los archivos que en git status que esten marcados en rojo. es una mala practica
+solo lo usamos si estamos 100% seguros de agregar todos los archivos
+
+todo lo que esta en verde se encuentra en una etapa de stage listos para ser comprometidos
+
+
+para que los cambios en los archivos sean permanentes, tenemos que reagregar con 
+git add los archivos en los que hicimos las modificacioens.
+
+
+
+para comprometer los archivos "commit"
+seguimos los siguientes pasos
+
+escribimos algo que tenga sentido y relacionado con el cambio en el proyecto 
+
+git commit -m " aqui hacemos el comentario"
+
+
+%% para commitear de la segunda forma verificamos con git status, y luego con git
+add lo agregamos
+  
+git status
+git commit   % presionamos enter inmediatamente sin escribir -m
+y nos lleva al editor predeterminado dode escribimos el cambio en el archivo
+predeterminado.
+
+
+
+%% Eliminar archivos de nuestro repositorio 
+
+  para eliminar se usa rm seguido del nombre del archivo
+rm nombre_archivo
+
+despues de git status, aparece en rojo el nombre del archivo eliminado.  
+
+
+agregamos los cambios a la etapa de stage. 
+agregamos el archivo que queremos eliminar
+git add archivo2.txt
+
+
+posteriormente escribimos git commit -m "Eliminando archivo 2 archivo2.txt"
+
+
+para eliminar de manera mas rapida y en un solo paso 
+git rm nombre_archivo.txt
+
+
+
+mv cambia el nombre del archivo
+mv archivo1.txt archivo.txt
+
+
+para guardar ralamente los cambios, despues de eliminar y renombrar los archivos, 
+tenemos nuevamente que reagregarlos usando git add y los nombres de los archivos
+a los cuales se les efecutaron los cambios o se eliminaron
+
+git add archivo.txt archivo.txt
+
+usamos git commit -m "para agregar la descripcion de los cambios"
+
+
+cambiamos nuevamente el nombre de archivo. txt a archivo1.txt
+git mv nombre1 nombre2  
+
+guardamos los cambios commentando con 
+git commit -m "cambios"
+
+
+%% ignorar archivos
+ para que otras personas no entren en nuestra configuracion
+
+existen varialvles de configuracion    .env
+
+en .env se guarda usuario y contraseña
+
+creamos ademas el archivo .gitignore en el cual todos los archivos que estan 
+contenidos en el git los ignora y no realiza ninguna acion sobre ellos.
+
+usamos git add .gitignore
+git commit -m "lo que queremos comentar"
+
+ 
+
+
+hacemos el ejemplo de sacar el directorio node_modules de gitignore y ademas 
+creamos nuevamente archivo2.txt y agregamos otro chanchito.
+
+git status -s
+git add .gitignore
+
+nos damos cuenta por los signos y los colores 
+despues de git add y git status -s el estado del archivo debe estar en color 
+verde y esto significa que git ya hace seguimiento sobre los mismos.
+
+ 
+
+git diff     % permit ver los cambios los archivos que fueron cambiados y en los
+que no se va a realizar accion. literal muestra en pantalla los cambios en los 
+archivos 
+
+
+git status   % muestra el estado actual de git
+
+despues agregamos nuevamente archivo2.txt    git add archivo2.txt
+y nuevamente git diff
+y no muestra nada una accion vacia por que no hay cambios
+
+
+git diff --staged  % nos muestra todos los cambios echos en la etapa de staged
+
+git status
+
+
+%%%%%%   HISTORIAL DE TODO EL REPOSITORIO %%%%%%%%%%%%%%55
+
+git log
+
+git log me muestra todo el historial de cambios y quien los a realizado.
+
+tambien podemos usar     git log --oneline      % muestra mas resumido mensaje y hastash
+
+
+
+%%%%%% branch  ramas %%%%%%%%%%%
+
+merch une ramas
+
+git status
+
+
+
+git branch  %verifica en que rama nos encontramos.
+
+
+git checkout -b nombre_rama
+git checkout -b rama_b
+
+y creamos o encendemos la rama b  branch_b
+
+
+podemos realizar cambios en nuestros archivos
+despues de guardar y actualizar con git log --oneline podemos ver que estamos
+en el ultimo cambio de la rama b
+
+cat nombre_archivo   me muestra en pantalla el nombre del archivo
+
+
+
+git checkout  % me lleva a la rama que el especifique 
+git checkout main
+ 
+
+para fucionar las ramas tenemos que estar en la rama main o principal
+
+git merge nombre_rama 
+
+git merge rama_b
+
+
+nos desplazamos a la rama principal y con merge llamamos los cambios en la rama b
+ 
+
+
+
+
+
+
+
+
+ 
